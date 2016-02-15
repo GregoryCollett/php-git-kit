@@ -151,6 +151,11 @@ class ToolkitCommand extends Command
         $this->tasks = $this->questionHelper->ask($this->input, $this->output, $tasksQuestion);
     }
 
+    /**
+     * Output some funky title to the command line.
+     * @method outputTitle
+     * @return void
+     */
     private function outputTitle()
     {
         $this->output->writeln(
@@ -162,10 +167,11 @@ class ToolkitCommand extends Command
             " \_____|_| |_|_|  \___/|_| |_| |_|\__,_|  \_____\___\_\ |_|"
         );
     }
+
     /**
     * Determine which tools need to be run and run them againt $this->files
-    * At this stage I think PHP Composer JS Files and such should become types
-    * of adaptor
+    * At this stage I think PHP, Composer, JS and such should become types
+    * of adaptor going forward (as so the team can adapt per project)
     * @return void
     */
     private function go()
@@ -258,6 +264,11 @@ class ToolkitCommand extends Command
 
     }
 
+    /**
+     * checks that there are files to run process against..
+     * @method hasFiles
+     * @return boolean
+     */
     private function hasFiles()
     {
         return (count($this->files) >= 1);
