@@ -1,0 +1,19 @@
+PRODUCTION_BRANCH: ''
+PHPLINT: true
+PHPCSFIXER: true
+PHPCS: true
+PHPMD: true
+PHPUNIT: false
+
+# Proposed structure
+# BRANCH_NAME:
+#   PRE-COMMIT:
+#     ENABLED: true
+#     EXECUTE:
+#       PHPLINT: true
+#       PHPCSFIXER: true
+#       PHPCS: true
+#       PHPMD: true
+#       PHPUNIT: false
+#   COMMIT-MSG:
+#     ENABLED: true

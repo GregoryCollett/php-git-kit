@@ -1,0 +1,22 @@
+#!/usr/bin/php -C
+
+<?php
+ini_set("date.timezone", "Europe/London");
+
+// Base path of the entire appp.... Is this the correct path???
+define("BASE_PATH", dirname(__FILE__));
+
+set_time_limit(0);
+
+(@include_once __DIR__ . '/../vendor/autoload.php') || @include_once __DIR__ . '/../../../autoload.php';
+
+use Symfony\Component\Console\Application;
+
+$app = new Application('Chroma PHP Code Quality Toolkit', '0.0.1');
+
+$app->addCommands([
+  new Chroma\CodeQuality\Commands\ToolkitCommand(),
+  new Chroma\CodeQuality\Commands\InitCommand(),
+]);
+
+$app->run();

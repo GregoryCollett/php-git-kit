@@ -1,0 +1,22 @@
+{
+  "name": "chroma/phpcodequality",
+  "description": "php code quality helpers",
+  "authors": [
+    {
+      "name": "Greg Collett",
+      "email": "greg.collett@chromasports.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Chroma\\CodeQuality\\": "src/Chroma/CodeQuality/"
+    }
+  },
+  "require": {
+    "symfony/console": "^2.7",
+    "symfony/process": "^2.7",
+    "symfony/dependency-injection": "^2.7",
+    "symfony/yaml": "^2.7",
+    "symfony/config": "^2.7"
+  }
+}
