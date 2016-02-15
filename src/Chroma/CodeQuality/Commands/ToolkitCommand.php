@@ -19,6 +19,7 @@ use Chroma\CodeQuality\Infrastructure\PhpMD\PhpMDHandler;
 use Chroma\CodeQuality\Infrastructure\PhpCs\PhpCsHandler;
 use Chroma\Commands\InitCommand;
 
+
 class ToolkitCommand extends Command
 {
     /**
