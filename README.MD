@@ -1,4 +1,4 @@
-# Chroma PHP Code Quality Toolkit (CPCQT)
+# PHP Code Quality Toolkit (PCQT)
 
 ## Prerequisites
 * PHP5.5 >
