@@ -16,7 +16,7 @@ class PhpLintHandler implements HandlerInterface
 
     private $needle = '/(\.php)|(\.inc)$/';
 
-    private $files;
+    private $files
 
     private $listener;
 

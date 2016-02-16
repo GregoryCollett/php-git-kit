@@ -12,7 +12,7 @@ set_time_limit(0);
 
 use Symfony\Component\Console\Application;
 
-$app = new Application('Chroma PHP Code Quality Toolkit', '0.0.1');
+$app = new Application('Code Quality Kit', '0.0.1');
 
 $app->addCommands([
   new Chroma\CodeQuality\Commands\ToolkitCommand(),
