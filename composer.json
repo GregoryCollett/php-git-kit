@@ -5,8 +5,14 @@
     {
       "name": "Greg Collett",
       "email": "greg.collett@chromasports.com"
+    },
+    {
+      "name": "Daniele Zanfardino",
     }
   ],
+  "config": {
+    "bin-dir": "bin"
+  },
   "autoload": {
     "psr-4": {
       "Chroma\\CodeQuality\\": "src/Chroma/CodeQuality/"

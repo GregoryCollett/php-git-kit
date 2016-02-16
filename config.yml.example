@@ -6,14 +6,19 @@ PHPMD: true
 PHPUNIT: false
 
 # Proposed structure
-# BRANCH_NAME:
-#   PRE-COMMIT:
-#     ENABLED: true
-#     EXECUTE:
-#       PHPLINT: true
-#       PHPCSFIXER: true
-#       PHPCS: true
-#       PHPMD: true
-#       PHPUNIT: false
-#   COMMIT-MSG:
-#     ENABLED: true
+# branch_name:
+#   pre-commit:
+#     enabled: true
+#     execute:
+#       phplint:
+#         test: (some regex)
+#       phpcsfixer:
+#         test: (some regex)
+#       phpcs:
+#         test: (some regex)
+#       phpmd:
+#         test: (some regex)
+#       phpunit:
+#         test: (some regex)
+#   commit-message:
+#     enabled: true
