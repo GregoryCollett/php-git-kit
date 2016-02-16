@@ -13,6 +13,7 @@ use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Chroma\CodeQuality\Infrastructure\Git\ExtractCommitedFiles;
+use Chroma\CodeQuality\Infrastructure\Git\ExtractFilesStaged;
 use Chroma\CodeQuality\Infrastructure\PhpLint\PhpLintHandler;
 use Chroma\CodeQuality\Infrastructure\PhpCsFixer\PhpCsFixerHandler;
 use Chroma\CodeQuality\Infrastructure\PhpMD\PhpMDHandler;
@@ -108,6 +109,11 @@ class ToolkitCommand extends Command
         $this->output->writeln('<info>invoked from ' . $this->invokedFrom . '</info>');
 
         if ($this->invokedFrom === 'GIT') {
+          // Given I am a developer
+          // When I run the command git commit [args]
+          // Then codequality toolkit should run
+          // TODO switch out the below function for getFilesStagedForCommit()
+          // currently extracting files post commit for testing...
             $this->extractCommitedFiles();
 
             if ($this->hasFiles()) {
@@ -123,10 +129,25 @@ class ToolkitCommand extends Command
 
         } else {
             // we are being run manually so do some stuff
+            // here we should branch off and make GIT its own service.
+            // we should... check for any arguments..
+            // we should expect arguments such as -d -dir (and a directory)
+            // if none is provided we should try to run against the current folder
+            // where the script is being executed from.
+            //
+            // Testing out writing basic user stories:
+            // Given I am a developer
+            // When I run the command codequality toolkit in my bash terminal
+            // Then the toolkit should run on the current folder
         }
 
     }
 
+    /**
+     * Configure what we are going to execute.
+     * @method configureExecute
+     * @return void;
+     */
     private function configureExecute()
     {
         $bypassQuestion = new ConfirmationQuestion(
@@ -159,12 +180,12 @@ class ToolkitCommand extends Command
     private function outputTitle()
     {
         $this->output->writeln(
-            "  _____ _                                  _____ ____ _______\n" .
-            " / ____| |                                / ____/ __ |__   __|\n" .
-            "| |    | |__  _ __ ___  _ __ ___   __ _  | |   | |  | | | |\n" .
-            "| |    |  _ \| __/  _ \| \ _` _ \ / _` | | |   | |  | | | |\n" .
-            "| |____| | | | | | (_) | | | | | | (_| | | |___| |__| | | |\n" .
-            " \_____|_| |_|_|  \___/|_| |_| |_|\__,_|  \_____\___\_\ |_|"
+            "  ______ ___ _______\n" .
+            " / ____/ __ |__   __|\n" .
+            "| |   | |  | | | |\n" .
+            "| |   | |  | | | |\n" .
+            "| |___| |__| | | |\n" .
+            " \_____\___\_\ |_|"
         );
     }
 
@@ -197,8 +218,8 @@ class ToolkitCommand extends Command
     private function processingFiles()
     {
         $files = [
-        'php' => false,
-        'composer' => false,
+          'php' => false,
+          'composer' => false,
         ];
 
         foreach ($this->files as $file) {
@@ -247,7 +268,7 @@ class ToolkitCommand extends Command
     {
         $this->output->writeln('<info>Extracting files</info>');
 
-        $commited = new ExtractCommitedFiles();
+        $commited = new ExtractFilesStaged();
 
         $this->files = $commited->getFiles();
 

@@ -1,12 +1,14 @@
 <?php
 
-namespace Chroma\CodeQuality\Infrastructure\PhpCsFixer;
+namespace Chroma\CodeQuality\Handlers\PhpCsFixer;
+
+use Chroma\CodeQuality\Contracts\HandlerInterface;
 
 use Chroma\CodeQuality\Infrastructure\Common\ToolHandler;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\ProcessBuilder;
 
-class PhpCsFixerHandler
+class PhpCsFixerHandler implements HandlerInterface
 {
     private $fixer = '-psr2';
 

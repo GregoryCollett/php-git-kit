@@ -6,6 +6,7 @@
 
 # IF PHP -V >= 5.5 THEN GO AND INSTALL STUFF
 # ELSE PROMPT THE USER TO UPDATE TO PHP 5.5
+# IS There such thing as phpvm?? php version manager?
 
 # INSTALL COMPOSER
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
