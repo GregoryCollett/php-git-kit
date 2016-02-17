@@ -57,6 +57,7 @@ class ToolkitCommand extends Command
     */
     private $files;
 
+
     /**
     * Tasks to be run
     * @var array
