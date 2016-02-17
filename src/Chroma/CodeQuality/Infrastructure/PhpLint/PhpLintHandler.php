@@ -34,7 +34,7 @@ class PhpLintHandler
         $this->output->writeln(strtoupper('Running PHP Lint'));
 
         foreach ($this->files as $file) {
-
+            print_r($file);
             if (!preg_match($this->needle, $file)) {
                 continue;
             }
