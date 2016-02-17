@@ -16,6 +16,7 @@ class PhpCsFixerHandler
 
     private $input;
 
+
     private $output;
 
     public function __construct($input, $output)
