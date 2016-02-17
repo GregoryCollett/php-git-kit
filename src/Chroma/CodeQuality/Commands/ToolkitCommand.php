@@ -204,6 +204,9 @@ class ToolkitCommand extends Command
 
         if ($this->isProcessingAnyPhpFile()) {
             foreach (array_keys($this->handlers) as $key) {
+              print_r($this->handlers);
+              print_r($this->tasks);
+              print_r($key);
                 if (in_array($key, $this->tasks)) {
                     $this->handlers[$key]->setFiles($this->files)->run();
                 }
